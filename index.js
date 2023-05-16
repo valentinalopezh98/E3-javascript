@@ -48,7 +48,6 @@ const pizzas = [
 
 const form = document.getElementById("form");
 const idInput = document.getElementById("pizza-id");
-const errorMessage = document.getElementById("error_message");
 const cardContainer = document.getElementById("card-container");
 
 // Traigo la ultima pizza del storage o creo array vacio si no hay ninguna
@@ -84,12 +83,9 @@ const getPizzaFromInput = (input) => {
 }
 
 const showError = (message) =>{
-  errorMessage.textContent = `${message}`;
-  cardContainer.innerHTML = "";
-}
-
-const success = () =>{
-  errorMessage.textContent = "";
+  cardContainer.innerHTML = `
+    <small class="error_message"">${message}</small>
+  `;
 }
 
 const capitalize = (str) => {
@@ -132,7 +128,6 @@ const validateInput = () => {
     return;
   }
   valid = true;
-  success();
   return valid;
 }
 
